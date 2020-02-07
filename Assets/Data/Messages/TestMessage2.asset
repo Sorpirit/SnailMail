@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c1b21c4431e404c99750e2dd91ae33, type: 3}
+  m_Name: TestMessage2
+  m_EditorClassIdentifier: 
+  message: {fileID: 5943854795548623775, guid: 48656707f0334634dafb4c229381f7a0, type: 3}
+  quotes:
+  - Hi
+  - Bye
+  - Meet you
+  TimePeriod: 15
+  spawnChance: 12
+  scoresCost: 15
