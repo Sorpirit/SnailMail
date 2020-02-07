@@ -170,9 +170,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 20
-  acc: 5
+  acc: 7
   stopDamp: 0.5
-  chengDirDamp: 0.2
+  chengDirDamp: 0
   accuracy: 0.0795
   cam: {fileID: 0}
 --- !u!114 &6392666084285935480

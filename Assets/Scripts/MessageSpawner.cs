@@ -11,7 +11,10 @@ public class MessageSpawner : MonoBehaviour
     [SerializeField] private float throwForce;
     [SerializeField] private float spawnRandomRange;
     
-    
+    [SerializeField] private float SpawnRate;
+    [SerializeField] private bool isSpawning = true;
+
+    private float spawnTimer;
 
     private void Spawn(){
         GameObject mes = messages[Random.Range(0,messages.Length)].CreateMessage(spawnPoint);
@@ -22,6 +25,11 @@ public class MessageSpawner : MonoBehaviour
     }
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.Q)) Spawn();
+        spawnTimer -= Time.deltaTime;
+
+        if(isSpawning && spawnTimer <= 0){
+            Spawn();
+            spawnTimer = SpawnRate;
+        }
     }
 }
