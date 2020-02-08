@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15c1b21c4431e404c99750e2dd91ae33, type: 3}
-  m_Name: TestMessage1
+  m_Name: SpamM
   m_EditorClassIdentifier: 
-  message: {fileID: 7124263546168330637, guid: 809bed5053c8390419c38813c2247d6f, type: 3}
+  typeName: Spam Messages
+  message: {fileID: 7124263546168330637, guid: 4b75e8ed20250804a877e5c00c9ca114, type: 3}
   quotes:
-  - Buy
-  - Sell
-  - Employ
-  TimePeriod: 25
-  spawnChance: 12
-  scoresCost: 45
-  punishmentPointsCost: 3
+  - You have won 100 m dollars
+  - Go $%^&!
+  - '*&%&*^%!'
+  - I have your credit card
+  - "I\u2019m your cousin from west lands. I need some money"
+  TimePeriod: 45
+  spawnChance: 0
+  scoresCost: 0
+  punishmentPointsCost: 0

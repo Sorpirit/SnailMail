@@ -6,5 +6,6 @@ public class PlayerController : MonoBehaviour, IDieAble
     {
         Debug.Log("Boom!");
         gameObject.SetActive(false);
+        GameManager.instance.EndGame();
     }
 }

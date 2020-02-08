@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c1b21c4431e404c99750e2dd91ae33, type: 3}
+  m_Name: AnnouncementM
+  m_EditorClassIdentifier: 
+  typeName: Announcement Message
+  message: {fileID: 7124263546168330637, guid: 62e90c696560f58469e60c2c8a97a5ba, type: 3}
+  quotes:
+  - Attend the greatest
+  - It's free now
+  - Meetup at 2pm
+  - Plan has been changed
+  - Dont lose opportunity
+  TimePeriod: 20
+  spawnChance: 1
+  scoresCost: 25
+  punishmentPointsCost: 20

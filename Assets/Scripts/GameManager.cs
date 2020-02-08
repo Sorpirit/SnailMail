@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image roundTimerUI;
     [SerializeField] private float timeForRound;
     [SerializeField] private GameObject finishScreen;
+    [SerializeField] private ScoresTableUI scoresUI;
     
     [Space]
     [SerializeField] private float punishmentPointsToSpawnGhost;
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
 
     private void Start() {
         roundTimer = timeForRound;
+        finishScreen.SetActive(false);
     }
 
     public void AddScores(MessageTamplate tamplate){
@@ -64,7 +67,20 @@ public class GameManager : MonoBehaviour
 
     }
     public void EndGame(){
+        if(!isPlaying)
+           return; 
+
         finishScreen.SetActive(true);
+        PrepareFinishScreen();
+        isPlaying = false;
+    }
+    public void PrepareFinishScreen(){
+        foreach (MessageTamplate mess in deliveredMessages.Keys)
+        {
+            scoresUI.AddRaw(mess.TypeName,"You have delivered " + deliveredMessages[mess] + "(sp for one " +mess.ScoresCost+"sp)");
+        }
+        scoresUI.AddRaw("Your Total score :", totalScores + "sp");
+        
     }
 
     private void SpawnGhost(){
@@ -89,12 +105,16 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape)){
             Application.Quit();
         }
+        if(Input.GetKeyDown(KeyCode.R)){
+            SceneManager.LoadScene(0);
+        }
         
         roundTimerUI.fillAmount = roundTimer / timeForRound;
         
 
         if(isPlaying && roundTimer <= 0){
             EndGame();
+            
         }
     }
 

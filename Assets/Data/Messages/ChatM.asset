@@ -10,14 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15c1b21c4431e404c99750e2dd91ae33, type: 3}
-  m_Name: TestMessage2
+  m_Name: ChatM
   m_EditorClassIdentifier: 
-  message: {fileID: 5943854795548623775, guid: 48656707f0334634dafb4c229381f7a0, type: 3}
+  typeName: Chat Messages
+  message: {fileID: 7124263546168330637, guid: 0b458107e5b329946b0b91e67b011902, type: 3}
   quotes:
-  - Hi
-  - Bye
-  - Meet you
-  TimePeriod: 15
-  spawnChance: 12
-  scoresCost: 15
-  punishmentPointsCost: 2
+  - Hi! I need you to help with hw
+  - Bye, see you later
+  - Memes. Memes
+  - Its so funny!
+  - Party tomorrow. Are you ready?
+  - Are you going to the camp?
+  TimePeriod: 30
+  spawnChance: 1
+  scoresCost: 10
+  punishmentPointsCost: 5
