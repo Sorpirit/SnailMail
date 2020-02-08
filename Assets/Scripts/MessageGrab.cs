@@ -7,6 +7,8 @@ public class MessageGrab : MonoBehaviour
     [SerializeField] private float holdRadious;
     [SerializeField] private SpringJoint2D leftHand;
     [SerializeField] private SpringJoint2D rightHand;
+    [SerializeField] private DistanceJoint2D leftHandDist;
+    [SerializeField] private DistanceJoint2D rightHandDist;
     [SerializeField] private Collider2D leftGrabArea;
     [SerializeField] private Collider2D rightGrabArea;
     [SerializeField] private ContactFilter2D messageMask;
@@ -23,17 +25,18 @@ public class MessageGrab : MonoBehaviour
     private bool isLeftHandFree = true;
     private bool isRightHandFree = true;
 
-    private void Grab(Rigidbody2D other,SpringJoint2D hand)
+    private void Grab(Rigidbody2D other,SpringJoint2D hand, DistanceJoint2D handDist)
     {
 
         hand.connectedBody = other;
 
     }
 
-    private void Throw(SpringJoint2D hand)
+    private void Throw(SpringJoint2D hand,DistanceJoint2D handDist)
     {
 
         hand.connectedBody = hand.attachedRigidbody;
+        handDist.connectedBody = handDist.attachedRigidbody; 
 
     }
 
@@ -49,7 +52,8 @@ public class MessageGrab : MonoBehaviour
         {
             float tempDistance = Vector2.Distance(coll.transform.position,transform.position);
             if(tempDistance < distance){
-                closest = coll.gameObject;
+                if( coll.TryGetComponent<Rigidbody2D>(out Rigidbody2D otherRb) && (leftHand.connectedBody != otherRb && rightHand.connectedBody != otherRb))
+                    closest = coll.gameObject;
             }
         }
         
@@ -63,12 +67,12 @@ public class MessageGrab : MonoBehaviour
             
             GameObject grabObject = TryToGrab(leftGrabArea);
             if(grabObject != null && grabObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D otherRb)){
-                Grab(otherRb,leftHand);
+                Grab(otherRb,leftHand,leftHandDist);
                 isLeftHandFree = false;
             }
             
             }else{
-                Throw(leftHand);
+                Throw(leftHand,leftHandDist);
                 isLeftHandFree = true;
             }
         }
@@ -80,12 +84,12 @@ public class MessageGrab : MonoBehaviour
             
             GameObject grabObject = TryToGrab(rightGrabArea);
             if(grabObject != null && grabObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D otherRb)){
-                Grab(otherRb,rightHand);
+                Grab(otherRb,rightHand,rightHandDist);
                 isRightHandFree = false;
             }
             
             }else{
-                Throw(rightHand);
+                Throw(rightHand,rightHandDist);
                 isRightHandFree = true;
             }
 
@@ -97,13 +101,13 @@ public class MessageGrab : MonoBehaviour
         if(Input.GetButtonDown("Fire1") && isLeftHandFree){
             GameObject grabObject = TryToGrab(leftGrabArea);
             if(grabObject != null && grabObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D otherRb)){
-                Grab(otherRb,leftHand);
+                Grab(otherRb,leftHand,leftHandDist);
                 isLeftHandFree = false;
             }
         }
 
         if(Input.GetButtonUp("Fire1") && !isLeftHandFree){
-            Throw(leftHand);
+            Throw(leftHand,leftHandDist);
             isLeftHandFree = true;
         }
     }
@@ -111,13 +115,13 @@ public class MessageGrab : MonoBehaviour
         if(Input.GetButtonDown("Fire2") && isRightHandFree){
             GameObject grabObject = TryToGrab(rightGrabArea);
             if(grabObject != null && grabObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D otherRb)){
-                Grab(otherRb,rightHand);
+                Grab(otherRb,rightHand,rightHandDist);
                 isRightHandFree = false;
             }
         }
 
         if(Input.GetButtonUp("Fire2") && !isRightHandFree){
-            Throw(rightHand);
+            Throw(rightHand,rightHandDist);
             isRightHandFree = true;
         }
     }
@@ -135,22 +139,22 @@ public class MessageGrab : MonoBehaviour
     private void AplyHoldRadious(){
 
         if(!isLeftHandFree && Vector2.Distance(leftHand.transform.position,leftHand.connectedBody.position) > holdRadious){
-            Throw(leftHand);
+            Throw(leftHand,leftHandDist);
             isLeftHandFree = true;
         }
         if(!isRightHandFree && Vector2.Distance(rightHand.transform.position,rightHand.connectedBody.position) > holdRadious){
-            Throw(leftHand);
+            Throw(leftHand,rightHandDist);
             isLeftHandFree = true;
         }
     }
     private void NullChek(){
         if(!isLeftHandFree && leftHand.connectedBody == null){
-            Throw(leftHand);
+            Throw(leftHand,leftHandDist);
             isLeftHandFree = true;
         }
 
         if(!isRightHandFree && rightHand.connectedBody == null){
-            Throw(rightHand);
+            Throw(rightHand,rightHandDist);
             isRightHandFree = true;
         }
     }

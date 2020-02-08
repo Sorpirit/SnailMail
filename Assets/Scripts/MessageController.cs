@@ -25,6 +25,7 @@ public class MessageController : MonoBehaviour {
     }
     
     private void MessageExpierd(){
+        GameManager.instance.MessageExpierd(parent);
         Destroy(gameObject);
     }
 

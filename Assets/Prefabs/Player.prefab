@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 6392666084285935430}
   - component: {fileID: 6392666084285935429}
   - component: {fileID: 6392666084285935480}
+  - component: {fileID: 5866395037244234783}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -169,12 +170,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef22f8e190c16aa48a20e5b7de7b4449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 20
-  acc: 7
-  stopDamp: 0.5
-  chengDirDamp: 0
-  accuracy: 0.0795
+  maxSpeed: 6
+  acc: 32
+  stopDamp: 1
+  chengDirDamp: 1
+  accuracy: 0.05
   cam: {fileID: 0}
+  mode: 1
 --- !u!114 &6392666084285935480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +192,8 @@ MonoBehaviour:
   holdRadious: 3
   leftHand: {fileID: 6392666085733173724}
   rightHand: {fileID: 6392666085271809168}
+  leftHandDist: {fileID: 1507122797}
+  rightHandDist: {fileID: 474083771}
   leftGrabArea: {fileID: 6392666085614301671}
   rightGrabArea: {fileID: 6392666084839394921}
   messageMask:
@@ -207,6 +211,18 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   testMode: 0
+--- !u!114 &5866395037244234783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392666084285935427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec989c2e8b05574a82e1f2727abbeec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6392666084410981133
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +519,7 @@ GameObject:
   - component: {fileID: 6392666085271809170}
   - component: {fileID: 6392666085271809169}
   - component: {fileID: 6392666085271809168}
+  - component: {fileID: 474083771}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -581,6 +598,25 @@ SpringJoint2D:
   m_Distance: 0.4
   m_DampingRatio: 0.4
   m_Frequency: 5
+--- !u!232 &474083771
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392666085271809182}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 6392666085733173722}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0.80300003, y: -0.00000020331828}
+  m_AutoConfigureDistance: 0
+  m_Distance: 2.4
+  m_MaxDistanceOnly: 0
 --- !u!1 &6392666085614301669
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,6 +686,7 @@ GameObject:
   - component: {fileID: 6392666085733173723}
   - component: {fileID: 6392666085733173722}
   - component: {fileID: 6392666085733173724}
+  - component: {fileID: 1507122797}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -728,6 +765,25 @@ SpringJoint2D:
   m_Distance: 0.4
   m_DampingRatio: 0.4
   m_Frequency: 5
+--- !u!232 &1507122797
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392666085733173720}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 6392666085733173722}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: -0, y: 0}
+  m_AutoConfigureDistance: 0
+  m_Distance: 2.4
+  m_MaxDistanceOnly: 0
 --- !u!1 &6392666086036792609
 GameObject:
   m_ObjectHideFlags: 0

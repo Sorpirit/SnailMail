@@ -8,8 +8,10 @@ public class MessageTamplate : ScriptableObject {
     [SerializeField] private float TimePeriod;
     [SerializeField] private float spawnChance;
     [SerializeField] private int scoresCost;
+    [SerializeField] private int punishmentPointsCost;
 
     public int ScoresCost{get => scoresCost;}
+    public int PunishmentPointsCost{get => punishmentPointsCost;}
 
     public GameObject CreateMessage(Transform point,bool makeParent = false){
         MessageController controller = Instantiate(message,point.position,point.rotation) as MessageController;

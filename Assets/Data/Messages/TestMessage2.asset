@@ -20,3 +20,4 @@ MonoBehaviour:
   TimePeriod: 15
   spawnChance: 12
   scoresCost: 15
+  punishmentPointsCost: 2

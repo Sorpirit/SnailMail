@@ -13,11 +13,16 @@ public class PlayerMovment : MonoBehaviour
     [SerializeField] private Camera cam;
 
 
+    private enum PlayTest{
+        velocityMode,
+        positionMode,
+    }
     private Rigidbody2D myRb;
 
     private float horInout;
     private float vertInput;
     private Vector2 mousePos;
+    [SerializeField] private PlayTest mode;
 
     private void Awake() 
     {
@@ -27,19 +32,29 @@ public class PlayerMovment : MonoBehaviour
     private void Update() 
     {
 
-        horInout = Input.GetAxis("Horizontal");
-        vertInput = Input.GetAxis("Vertical");
+        horInout = Input.GetAxisRaw("Horizontal");
+        vertInput = Input.GetAxisRaw("Vertical");
         mousePos = Input.mousePosition;
 
     }
 
     private void FixedUpdate() 
     {
+        if(Input.GetKeyDown(KeyCode.M)){
+            mode = mode == PlayTest.velocityMode ? PlayTest.positionMode : PlayTest.velocityMode;
+        }
+
+
         RotatePlayer();
-        MovePlayer();   
+
+        if(mode == PlayTest.velocityMode)
+        
+            MovePlayerVelocity();   
+        else
+            MovePlayerPosition();
     }
 
-    private void MovePlayer()
+    private void MovePlayerVelocity()
     {
 
         Vector2 direction = new Vector2(horInout,vertInput).normalized;
@@ -106,6 +121,12 @@ public class PlayerMovment : MonoBehaviour
            
 
     }
+    private void MovePlayerPosition(){
+        Vector2 direction = new Vector2(horInout,vertInput).normalized;
+        
+        myRb.MovePosition(myRb.position + direction * maxSpeed * Time.deltaTime);
+    }
+
 
     private void RotatePlayer()
     {
