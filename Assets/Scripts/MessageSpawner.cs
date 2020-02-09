@@ -13,15 +13,19 @@ public class MessageSpawner : MonoBehaviour
     
     [SerializeField] private float SpawnRate;
     [SerializeField] private bool isSpawning = true;
+    [SerializeField] private ParticleSystem spawnEffect;
 
     private float spawnTimer;
 
     private void Spawn(){
-        GameObject mes = messages[Random.Range(0,messages.Length)].CreateMessage(spawnPoint);
+        int randIndex = Random.Range(0,messages.Length);
+        GameObject mes = messages[randIndex].CreateMessage(spawnPoint);
         Rigidbody2D mesRb = mes.GetComponent<Rigidbody2D>();
         if(mesRb != null){
             mesRb.AddForce(((Vector2) spawnPoint.right + new Vector2(0,Random.Range(-spawnRandomRange,spawnRandomRange))).normalized * throwForce);
         }
+        spawnEffect.startColor = messages[randIndex].MessageColor;
+        spawnEffect.Play();
     }
 
     private void Update() {

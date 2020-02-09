@@ -386,6 +386,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quoteField: {fileID: 7124263546748257976}
+  animator: {fileID: 2170299088359534711}
+  messageRenderer: {fileID: 7124263548190025641}
+  dustRffect: {fileID: 1072123951114775850, guid: 6093c1f4677cffe4891ba8c0c17c21bc,
+    type: 3}
   clock: {fileID: 4134605673505305028}
 --- !u!1 &7124263546748257977
 GameObject:

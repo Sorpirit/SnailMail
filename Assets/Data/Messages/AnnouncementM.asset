@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AnnouncementM
   m_EditorClassIdentifier: 
   typeName: Announcement Message
-  message: {fileID: 7124263546168330637, guid: 62e90c696560f58469e60c2c8a97a5ba, type: 3}
+  message: {fileID: 1491808312774716592, guid: 4ec8086e160aff541945facd345ea05e, type: 3}
   quotes:
   - Attend the greatest
   - It's free now
@@ -24,3 +24,5 @@ MonoBehaviour:
   spawnChance: 1
   scoresCost: 25
   punishmentPointsCost: 20
+  messageSprite: {fileID: 21300000, guid: a06f6fe22a5e5674186c555beb86eb60, type: 3}
+  messageColor: {r: 1, g: 0.33333334, b: 1, a: 1}

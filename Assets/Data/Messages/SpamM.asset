@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpamM
   m_EditorClassIdentifier: 
   typeName: Spam Messages
-  message: {fileID: 7124263546168330637, guid: 4b75e8ed20250804a877e5c00c9ca114, type: 3}
+  message: {fileID: 7626919290876863458, guid: 01685b6f9de2980489e8de91cb1902d9, type: 3}
   quotes:
   - You have won 100 m dollars
   - Go $%^&!
@@ -24,3 +24,5 @@ MonoBehaviour:
   spawnChance: 0
   scoresCost: 0
   punishmentPointsCost: 0
+  messageSprite: {fileID: 21300000, guid: a238ba63a99b0f542924c61edafa6c51, type: 3}
+  messageColor: {r: 1, g: 0.33333334, b: 0.33333334, a: 1}

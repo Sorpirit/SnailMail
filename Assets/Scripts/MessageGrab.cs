@@ -51,6 +51,7 @@ public class MessageGrab : MonoBehaviour
             if(tempDistance < distance){
                 if( coll.TryGetComponent<Rigidbody2D>(out Rigidbody2D otherRb) && (leftHand.connectedBody != otherRb))
                     closest = coll.gameObject;
+                    coll.GetComponent<MessageController>()?.MessageGrabbed();
             }
         }
         

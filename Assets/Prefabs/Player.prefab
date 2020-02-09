@@ -109,11 +109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdRadious: 3
   leftHand: {fileID: 6392666085733173724}
-  rightHand: {fileID: 0}
   leftHandDist: {fileID: 1507122797}
-  rightHandDist: {fileID: 0}
   leftGrabArea: {fileID: 6392666085614301671}
-  rightGrabArea: {fileID: 0}
   messageMask:
     useTriggers: 0
     useLayerMask: 1
@@ -308,7 +305,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6392666085733173721}
-  - component: {fileID: 6392666085733173723}
   - component: {fileID: 6392666085733173722}
   - component: {fileID: 6392666085733173724}
   - component: {fileID: 1507122797}
@@ -327,28 +323,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6392666085733173720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.825, y: -0.108, z: 0}
+  m_LocalPosition: {x: 1.01, y: -0.133, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5201903339301927531}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &6392666085733173723
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6392666085733173720}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.11
 --- !u!50 &6392666085733173722
 Rigidbody2D:
   serializedVersion: 4

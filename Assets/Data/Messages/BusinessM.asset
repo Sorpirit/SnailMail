@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BusinessM
   m_EditorClassIdentifier: 
   typeName: Buisness Message
-  message: {fileID: 7124263546168330637, guid: 809bed5053c8390419c38813c2247d6f, type: 3}
+  message: {fileID: 7626919290876863458, guid: 21ad84651216a014fa929bf28e3e3769, type: 3}
   quotes:
   - Increased indexes
   - Company have made 1m
@@ -24,3 +24,5 @@ MonoBehaviour:
   spawnChance: 1
   scoresCost: 45
   punishmentPointsCost: 10
+  messageSprite: {fileID: 21300000, guid: b9d18b367b4577f42b226cce2e44e24e, type: 3}
+  messageColor: {r: 0.33333334, g: 1, b: 1, a: 1}
