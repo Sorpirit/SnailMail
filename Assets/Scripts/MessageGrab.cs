@@ -6,11 +6,8 @@ public class MessageGrab : MonoBehaviour
 {
     [SerializeField] private float holdRadious;
     [SerializeField] private SpringJoint2D leftHand;
-    [SerializeField] private SpringJoint2D rightHand;
     [SerializeField] private DistanceJoint2D leftHandDist;
-    [SerializeField] private DistanceJoint2D rightHandDist;
     [SerializeField] private Collider2D leftGrabArea;
-    [SerializeField] private Collider2D rightGrabArea;
     [SerializeField] private ContactFilter2D messageMask;
     [SerializeField] private PlayTestMode testMode;
 
@@ -52,7 +49,7 @@ public class MessageGrab : MonoBehaviour
         {
             float tempDistance = Vector2.Distance(coll.transform.position,transform.position);
             if(tempDistance < distance){
-                if( coll.TryGetComponent<Rigidbody2D>(out Rigidbody2D otherRb) && (leftHand.connectedBody != otherRb && rightHand.connectedBody != otherRb))
+                if( coll.TryGetComponent<Rigidbody2D>(out Rigidbody2D otherRb) && (leftHand.connectedBody != otherRb))
                     closest = coll.gameObject;
             }
         }
@@ -77,6 +74,7 @@ public class MessageGrab : MonoBehaviour
             }
         }
     }
+    /*
     private void UpdateRightHandPress(){
         if(Input.GetButtonDown("Fire2")){
 
@@ -96,6 +94,7 @@ public class MessageGrab : MonoBehaviour
 
         }
     }
+    */
     //Refactor In Final version!
     private void UpdateLeftHandHold(){
         if(Input.GetButtonDown("Fire1") && isLeftHandFree){
@@ -111,6 +110,7 @@ public class MessageGrab : MonoBehaviour
             isLeftHandFree = true;
         }
     }
+    /*
     private void UpdateRightHandHold(){
         if(Input.GetButtonDown("Fire2") && isRightHandFree){
             GameObject grabObject = TryToGrab(rightGrabArea);
@@ -125,6 +125,7 @@ public class MessageGrab : MonoBehaviour
             isRightHandFree = true;
         }
     }
+    */
     //Refactor In Final version!
     // private void CombinedModeUpdate(){
     //     if(Input.GetButtonDown("Fire1")){
@@ -142,10 +143,10 @@ public class MessageGrab : MonoBehaviour
             Throw(leftHand,leftHandDist);
             isLeftHandFree = true;
         }
-        if(!isRightHandFree && Vector2.Distance(rightHand.transform.position,rightHand.connectedBody.position) > holdRadious){
-            Throw(leftHand,rightHandDist);
-            isLeftHandFree = true;
-        }
+        // if(!isRightHandFree && Vector2.Distance(rightHand.transform.position,rightHand.connectedBody.position) > holdRadious){
+        //     Throw(leftHand,rightHandDist);
+        //     isLeftHandFree = true;
+        // }
     }
     private void NullChek(){
         if(!isLeftHandFree && leftHand.connectedBody == null){
@@ -153,10 +154,10 @@ public class MessageGrab : MonoBehaviour
             isLeftHandFree = true;
         }
 
-        if(!isRightHandFree && rightHand.connectedBody == null){
-            Throw(rightHand,rightHandDist);
-            isRightHandFree = true;
-        }
+        // if(!isRightHandFree && rightHand.connectedBody == null){
+        //     Throw(rightHand,rightHandDist);
+        //     isRightHandFree = true;
+        // }
     }
 
 
@@ -166,11 +167,11 @@ public class MessageGrab : MonoBehaviour
         switch(testMode){
             case PlayTestMode.HoldMouse:
                 UpdateLeftHandHold();
-                UpdateRightHandHold();
+                //UpdateRightHandHold();
             break;
             case PlayTestMode.PressMouse:
                 UpdateLeftHandPress();
-                UpdateRightHandPress();
+                //UpdateRightHandPress();
             break;
         }
 

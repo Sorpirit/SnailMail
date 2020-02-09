@@ -11,6 +11,8 @@ public class PlayerMovment : MonoBehaviour
     [SerializeField,Range(0f,1f)] private float chengDirDamp;
     [SerializeField,Range(0,.09f)] private float accuracy;
     [SerializeField] private Camera cam;
+    [SerializeField] private Animator animator;
+    [SerializeField] private Transform grabAnchor;
 
 
     private enum PlayTest{
@@ -35,6 +37,7 @@ public class PlayerMovment : MonoBehaviour
         horInout = Input.GetAxisRaw("Horizontal");
         vertInput = Input.GetAxisRaw("Vertical");
         mousePos = Input.mousePosition;
+        Animate();
 
     }
 
@@ -45,13 +48,15 @@ public class PlayerMovment : MonoBehaviour
         }
 
 
-        RotatePlayer();
+        //RotatePlayer();
 
         if(mode == PlayTest.velocityMode)
         
             MovePlayerVelocity();   
         else
             MovePlayerPosition();
+
+    
     }
 
     private void MovePlayerVelocity()
@@ -134,6 +139,27 @@ public class PlayerMovment : MonoBehaviour
         Vector2 viewDir = (cam.ScreenToWorldPoint(mousePos) - transform.position).normalized;
         transform.up = viewDir;
 
+    }
+
+    private void Animate(){
+        Vector2 dir = new Vector2(horInout,vertInput);
+        if(dir != Vector2.zero){
+            
+            if(transform.localScale.x * dir.x < 0)
+                transform.localScale = new Vector3(transform.localScale.x * -1,transform.localScale.y);
+            else if(dir.x == 0)
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x),transform.localScale.y);
+            
+            if(dir.x == 0)
+                grabAnchor.transform.eulerAngles = new Vector3(0,0,90 * dir.y);
+            else
+                grabAnchor.transform.eulerAngles = new Vector3(0,0,90 * dir.y * dir.x);
+
+            animator.SetFloat("Horisontal",dir.x);
+            animator.SetFloat("Vertical",dir.y);
+        }
+       
+        animator.SetFloat("Speed",dir.magnitude);
     }
 
 }
