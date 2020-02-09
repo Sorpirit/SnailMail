@@ -50,7 +50,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04, y: -0.06}
+  m_Offset: {x: 0, y: -0.06}
   serializedVersion: 2
   m_Radius: 0.35
 --- !u!50 &6392666084285935430
@@ -73,7 +73,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6392666084285935429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
   accuracy: 0.05
   cam: {fileID: 0}
   animator: {fileID: 3514022242076723642}
-  grabAnchor: {fileID: 0}
+  grabAnchor: {fileID: 5201903339301927531}
   mode: 1
 --- !u!114 &6392666084285935480
 MonoBehaviour:
@@ -323,7 +323,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6392666085733173720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.01, y: -0.133, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5201903339301927531}
