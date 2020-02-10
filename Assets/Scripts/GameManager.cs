@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,8 +20,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private float ghostSpawnRange;
 
+    [Space]
+    [SerializeField] private NextLevelCondition levelCondition;
+    [SerializeField] private TMP_Text reqScoresText;
+
     private Dictionary <MessageTamplate,int> deliveredMessages;
     private Dictionary <MessageTamplate,int> expierdMessages;
+
+    public int Total{get => totalScores;}
 
     private int totalScores;
     private int totalPanishmentPoints;
@@ -44,6 +51,8 @@ public class GameManager : MonoBehaviour
     private void Start() {
         roundTimer = timeForRound;
         finishScreen.SetActive(false);
+        Time.timeScale = 1;
+        SoundManager.instance.Play(SoundEffect.RoundStarts);
     }
 
     public void AddScores(MessageTamplate tamplate){
@@ -70,8 +79,10 @@ public class GameManager : MonoBehaviour
         if(!isPlaying)
            return; 
 
+        SoundManager.instance.Play(SoundEffect.RoundEnds);
         finishScreen.SetActive(true);
         PrepareFinishScreen();
+        Time.timeScale = 0f;
         isPlaying = false;
     }
     public void PrepareFinishScreen(){
@@ -81,6 +92,15 @@ public class GameManager : MonoBehaviour
         }
         scoresUI.AddRaw("Your Total score :", totalScores + "sp");
         
+        if(reqScoresText != null && levelCondition != null){
+            reqScoresText.text = "Next Level " +  totalScores + " / " + levelCondition.ReqScore;
+            if(totalScores >= levelCondition.ReqScore){
+                reqScoresText.color = Color.green;
+            }else{
+                reqScoresText.color = Color.red;
+            }
+        }
+
     }
 
     private void SpawnGhost(){
@@ -94,6 +114,7 @@ public class GameManager : MonoBehaviour
         if(follow != null){
             follow.Target = player;
         }
+        SoundManager.instance.Play(SoundEffect.ChostSpawn);
     }
     private bool isAbleToSpawnGhost(){
         return (totalPanishmentPoints - prevSpawPanishmentPoints) >= punishmentPointsToSpawnGhost;
@@ -114,8 +135,15 @@ public class GameManager : MonoBehaviour
 
         if(isPlaying && roundTimer <= 0){
             EndGame();
-            
         }
+    }
+
+    public void Retry(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Menu(){
+        SceneManager.LoadScene(0);
     }
 
 

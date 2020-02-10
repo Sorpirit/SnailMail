@@ -8,31 +8,18 @@ public class EnemyAttack : MonoBehaviour {
     private EnemyMovment movment;
 
     [SerializeField] private float AttackRange;
-    [SerializeField] private float AttackDelay;
-    [SerializeField] private float AttackDuration;
     [SerializeField] private Collider2D AttackZone;
     [SerializeField] private GameObject AttackZoneTip;
     [SerializeField] private GameObject AttackZoneSprite;
     [SerializeField] private ContactFilter2D targetsFilter;
+    [SerializeField] private Animator animator;
 
     private bool isAttacking;
-    private WaitForSeconds attackDelay;
-    private WaitForSeconds attackDuration;
 
-    IEnumerator Attack(){
-        isAttacking = true;
-        if(follow != null) follow.isRotating = false;
-        if(follow != null) movment.IsMoving = false;
+    public void Attack(){
 
-        AttackZoneTip.SetActive(true);
-        yield return attackDelay;
-        AttackZoneTip.SetActive(false);
-
+        SoundManager.instance.Play(SoundEffect.GhostAttack);
         CastHurtBox();
-
-        AttackZoneSprite.SetActive(true);
-        yield return attackDuration;
-        AttackZoneSprite.SetActive(false);
 
         if(follow != null) follow.isRotating = true;
         if(follow != null) movment.IsMoving = true;
@@ -63,14 +50,13 @@ public class EnemyAttack : MonoBehaviour {
         movment = GetComponent<EnemyMovment>();
     }
 
-    private void Start() {
-        attackDelay = new WaitForSeconds(AttackDelay);
-        attackDuration = new WaitForSeconds(AttackDuration);
-    }
-
     private void Update() {
         if(!isAttacking && follow.Target != null && ChekIfInRange()){
-            StartCoroutine("Attack");
+            animator.SetTrigger("Attack");
+            isAttacking = true;
+            if(follow != null) follow.isRotating = false;
+            if(follow != null) movment.IsMoving = false;
+            //StartCoroutine("Attack");
         }
     }
 

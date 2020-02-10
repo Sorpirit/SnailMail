@@ -10,8 +10,14 @@ public class EnemyMovment : MonoBehaviour
     private bool isMoving = true;
     private float currentSpeed = 0;
 
+    private EnemyFollow follow;
+
+    private void Awake() {
+        follow = GetComponent<EnemyFollow>();
+    }
+
     private void MoveEnemy(){
-        transform.position += transform.right * currentSpeed * Time.deltaTime;
+        transform.position +=(Vector3) follow.Dir * currentSpeed * Time.deltaTime;
         currentSpeed += acc * Time.deltaTime;
     }
 

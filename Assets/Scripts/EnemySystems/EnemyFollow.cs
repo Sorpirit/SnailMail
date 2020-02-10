@@ -6,6 +6,7 @@ public class EnemyFollow : MonoBehaviour {
 
     public bool isRotating{get => rotating; set => rotating = value;}
     public Transform Target{get => follow;set => follow = value;}
+    public Vector2 Dir{get => direction;}
     private bool rotating = true;
     private Vector2 direction;
 
@@ -19,7 +20,6 @@ public class EnemyFollow : MonoBehaviour {
 
     private void Update() {
         if(follow != null) CalculateDir();
-        if(rotating) RotateTowardsFollow();
     }
 
 

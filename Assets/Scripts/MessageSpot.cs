@@ -10,6 +10,7 @@ public class MessageSpot : MonoBehaviour
     [SerializeField] private ParticleSystem deliveredBlackHoleEffect;
     [SerializeField] private Color spotColor;
     [SerializeField] private CinemachineImpulseSource impulseSource;
+    [SerializeField] private AudioSource rewodingSound;
 
     private void Start() {
         deliveredEffect.startColor = spotColor;
@@ -25,6 +26,7 @@ public class MessageSpot : MonoBehaviour
             deliveredEffect.transform.position = other.transform.position;
             deliveredEffect.Play();
             if(!deliveredBlackHoleEffect.isPlaying) deliveredBlackHoleEffect.Play();
+            if(!rewodingSound.isPlaying) rewodingSound.Play();
             impulseSource.GenerateImpulse();
         }
     }

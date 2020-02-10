@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4374884499361765133
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 212415628347501774, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.87843144
+      objectReference: {fileID: 0}
+    - target: {fileID: 212415628347501774, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.45098042
+      objectReference: {fileID: 0}
+    - target: {fileID: 212415628347501774, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.45098042
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807050186093079777, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 381ecfb266701f64b8326aec7010e6f8,
+        type: 3}
+    - target: {fileID: 3807050186586572981, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807050186586572981, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807050186586572981, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.32421875
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807050186586572981, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807050186586572981, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807050186586572981, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807050186586572981, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807050186586572981, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807050186586572981, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807050186586572981, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807050186586572981, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807050186586572984, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: m_Name
+      value: SMassage Spot (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807050186586572986, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: message
+      value: 
+      objectReference: {fileID: 11400000, guid: cc56b851e6e9bb645adfefc9622a15ca,
+        type: 2}
+    - target: {fileID: 3807050186586572986, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: spotColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807050186586572986, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: spotColor.g
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807050186586572986, guid: ecd6943df649e8a439d4dcceca6e4617,
+        type: 3}
+      propertyPath: spotColor.b
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ecd6943df649e8a439d4dcceca6e4617, type: 3}

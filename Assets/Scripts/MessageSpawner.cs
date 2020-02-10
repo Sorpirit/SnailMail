@@ -14,7 +14,8 @@ public class MessageSpawner : MonoBehaviour
     [SerializeField] private float SpawnRate;
     [SerializeField] private bool isSpawning = true;
     [SerializeField] private ParticleSystem spawnEffect;
-
+    [SerializeField] private AudioSource messageSpawned;
+ 
     private float spawnTimer;
 
     private void Spawn(){
@@ -25,6 +26,7 @@ public class MessageSpawner : MonoBehaviour
             mesRb.AddForce(((Vector2) spawnPoint.right + new Vector2(0,Random.Range(-spawnRandomRange,spawnRandomRange))).normalized * throwForce);
         }
         spawnEffect.startColor = messages[randIndex].MessageColor;
+        messageSpawned.Play();
         spawnEffect.Play();
     }
 
